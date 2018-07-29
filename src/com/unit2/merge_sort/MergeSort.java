@@ -56,9 +56,51 @@ public class MergeSort {
 			}
 		}
 	}
+	/**
+	 * 不使用哨兵
+	 * @param A
+	 * @param p
+	 * @param q
+	 * @param r
+	 */
+	public static void merge2(int A[], int p,int q,int r){
+		int n1=q-p+1;//左边长度 +1包括q
+		int n2=r-q;//右边长度 不包括q
+		int L[]=new int[n1];
+		int R[]=new int[n2];
+		for(int i=0;i<=n1-1;i++){
+			L[i]=A[p+i];
+		}
+		for(int i=0;i<=n2-1;i++){
+			R[i]=A[q+i+1];
+		}
+		int j=0;
+		int k=0;
+		
+		for(int i=p;i<=r;i++){//对L  R比较合并 重新写入A中
+			if(j>=n1){//检查L 有没有比较完全 L比较完全到index到n1
+				A[i]=R[k];
+				k++;
+				continue ;
+			}
+			if(k>=n2){//检查R 有没有到尾部
+				A[i]=L[j];
+				j++;
+				continue;
+			}
+			if(L[j]<R[k]){//当前两个最小的 去比较 谁小谁放入A中
+				A[i]=L[j];
+				j++;
+			}else{
+				A[i]=R[k];
+				k++;
+			}			
+		}
+	}
+	
 	public static void main(String[] args) {
 		int B[]={1,2,7,2,3,4,9};
-		merge(B, 0, 2, B.length-1);
+		merge2(B, 0, 2, B.length-1);
 		System.out.println(Arrays.toString(B));
 		int[] A={1,5,32,8,4,8,56,5,43,45,453,23,7,35,7,4,0,2};
 		mergeSort(A, 0, A.length-1);		
