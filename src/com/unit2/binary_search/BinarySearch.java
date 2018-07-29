@@ -39,7 +39,7 @@ public class BinarySearch {
 	 */
 
 	public static int recurrenceSearch(int A[],int left,int right,int a){
-		int index=-1;
+		int index=-1;//
 		if(left>right){
 			return -1;
 		}	
@@ -47,9 +47,9 @@ public class BinarySearch {
 		if(A[mid]==a){	
 			return mid;		
 		}else if(a<A[mid]){
-			index=recurrenceSearch(A, left, mid-1, a);
+			index=recurrenceSearch(A, left, mid-1, a);//哪个子任务找到 就返回
 		}else{
-			index=recurrenceSearch(A, mid+1,right, a);
+			index=recurrenceSearch(A, mid+1,right, a);//哪个子任务找到 就返回
 		}		
 		return index;
 	}
