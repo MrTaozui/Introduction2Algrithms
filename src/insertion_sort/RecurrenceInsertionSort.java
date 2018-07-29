@@ -24,9 +24,9 @@ public static void insert(int []A,int index){// 前0~index个已经排序好
 	A[i+1]=v;
 	
 }
-public static void RecurrenceInsertionSort(int A[],int n){//排序 对前0~index排序
+public static void recurrenceInsertionSort(int A[],int n){//排序 对前0~index排序
 	if(n>0){//当n=0则  已经排序完成
-		RecurrenceInsertionSort(A,n-1);//对前下标0~n-1排序
+		recurrenceInsertionSort(A,n-1);//对前下标0~n-1排序
 		insert(A,n-1);//下标0~n-1个是已经排序好的 上面一行代码
 	}else{
 		return;
@@ -37,7 +37,7 @@ public static void main(String[] args) {
 	insert(A,4);
 	System.out.println(Arrays.toString(A));
 	int B[]={7,1,3,1,6,8};
-	RecurrenceInsertionSort(B,B.length-1);//
+	recurrenceInsertionSort(B,B.length-1);//
 	System.out.println(Arrays.toString(B));
 }
 
