@@ -18,7 +18,7 @@ public class InsertionSort {
 		for(int j=1;j<=intArr.length-1;j++){//第一位是已经比较好的
 			int key=intArr[j];//key是将要插入的数字
 			int i=j-1;//key的前一位 将要从这里开始比较，key开始找自己合适的位置
-			while(i>=0&&key<intArr[i]){//开始
+			while(i>=0&&key<intArr[i]){//开始  排序好的数组
 				intArr[i+1]=intArr[i];//key<inArr[i] ,intArr[i]往后移动一个位置
 				i=i-1;
 			}
